@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Guardia">
         <activity
+            android:name=".goals_page"
+            android:exported="false" />
+        <activity
             android:name=".expense_item"
             android:exported="false" />
         <activity
