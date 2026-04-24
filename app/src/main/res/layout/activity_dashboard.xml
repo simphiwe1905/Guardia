@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+    Dashboard Activity Layout
+    This is the main "Home" screen of the Guardia app.
+    It uses a vertical LinearLayout to stack the top bar, profile section,
+    financial summary, and quick actions from top to bottom.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,14 +16,16 @@
     android:background="@drawable/guardia"
     tools:context=".dashboard">
 
-    <!-- Top bar section -->
-    <!--The first Layout is for the top bar-->
+    <!--
+        Top Bar Section
+        A horizontal bar that holds the notification bell and theme toggle icons.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal">
 
-        <!-- Left icon -->
+        <!-- Left Icon: Used for notifications (phiwe_bell) -->
         <ImageButton
             android:id="@+id/btnDashboardMenu"
             android:layout_width="40dp"
@@ -29,13 +36,17 @@
             android:src="@drawable/phiwe_bell"
             app:tint="@android:color/white" />
 
-        <!-- Spacer to push the next icon to the right -->
+        <!--
+            Spacer View
+            The 'layout_weight="1"' tells this view to take up all available space in the middle.
+            This pushes the bell to the far left and the moon to the far right.
+        -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Right icon -->
+        <!-- Right Icon: Used for theme/settings (moon) -->
         <ImageButton
             android:id="@+id/btnDashboardSettings"
             android:layout_width="40dp"
@@ -47,7 +58,10 @@
             app:tint="@android:color/white" />
     </LinearLayout>
 
-    <!-- Main dashboard content -->
+    <!--
+        Main Dashboard Content
+        The 'layout_weight="1"' here ensures this section fills the rest of the screen height.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -55,7 +69,10 @@
         android:orientation="vertical"
         android:paddingTop="20dp">
 
-        <!-- Profile / welcome section -->
+        <!--
+            Profile / Welcome Section
+            Displays the user's avatar and a personal greeting.
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +80,7 @@
             android:gravity="center_vertical"
             android:layout_marginBottom="24dp">
 
-            <!-- User icon -->
+            <!-- Profile Picture placeholder -->
             <ImageView
                 android:id="@+id/imgDashboardProfile"
                 android:layout_width="70dp"
@@ -73,12 +90,12 @@
                 android:src="@drawable/phiwe_person"
                 app:tint="#2E2E2E" />
 
-            <!-- Space between image and text -->
+            <!-- Margin View: Creates a 16dp gap between the image and the text -->
             <View
                 android:layout_width="16dp"
                 android:layout_height="1dp" />
 
-            <!-- Welcome text section -->
+            <!-- Welcome message and dynamic username display -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -103,7 +120,7 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Summary title -->
+        <!-- Section Title for the financial summary -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -113,7 +130,13 @@
             android:textStyle="bold"
             android:layout_marginBottom="14dp" />
 
-        <!-- First summary card -->
+        <!--
+            Summary Cards
+            These cards show key financial data. Each uses a vertical LinearLayout
+            with a specific background drawable to look like a card.
+        -->
+
+        <!-- Card 1: Total Balance -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -141,7 +164,7 @@
                 android:layout_marginTop="8dp" />
         </LinearLayout>
 
-        <!-- Second summary card -->
+        <!-- Card 2: Current Monthly Expenses -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -169,7 +192,7 @@
                 android:layout_marginTop="8dp" />
         </LinearLayout>
 
-        <!-- Third summary card -->
+        <!-- Card 3: Progress toward Savings Goals -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -197,7 +220,7 @@
                 android:layout_marginTop="8dp" />
         </LinearLayout>
 
-        <!-- Action buttons title -->
+        <!-- Section Title for action buttons -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -208,7 +231,13 @@
             android:layout_marginBottom="14dp" />
 
 
-        <!-- First row of buttons -->
+        <!--
+            Quick Action Grid
+            The buttons are split into rows. Each button uses layout_weight="1"
+            to ensure they are exactly the same size in their row.
+        -->
+
+        <!-- Row 1: Manage Expenses -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -240,7 +269,7 @@
                 android:textSize="20dp" />
         </LinearLayout>
 
-        <!-- Second row of buttons -->
+        <!-- Row 2: Goals and Insights -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -272,7 +301,7 @@
                 android:textSize="20dp"/>
         </LinearLayout>
 
-        <!-- Third row of buttons -->
+        <!-- Row 3: Account Options -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

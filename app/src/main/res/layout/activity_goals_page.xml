@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+    Savings Goals Page Layout
+    This screen allows users to set and track their financial savings goals.
+    Users can input a goal name, a target amount, and their current savings
+    to see their progress percentage.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,13 +16,16 @@
     android:background="@drawable/guardia"
     tools:context=".goals_page">
 
-    <!-- Top bar -->
+    <!--
+        Top Navigation Bar
+        Contains quick-action icons.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal">
 
-        <!-- Bell icon on the left -->
+        <!-- Bell icon: Typically used for alerts or notifications -->
         <ImageButton
             android:id="@+id/btnGoalsMenu"
             android:layout_width="40dp"
@@ -28,13 +36,16 @@
             android:src="@drawable/phiwe_bell"
             app:tint="@android:color/white" />
 
-        <!-- Spacer -->
+        <!--
+            Spacer View
+            Uses layout_weight="1" to push the two icons to opposite sides of the screen.
+        -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Moon icon on the right -->
+        <!-- Moon icon: Used for toggling themes (like Dark Mode) -->
         <ImageButton
             android:id="@+id/btnGoalsSettings"
             android:layout_width="40dp"
@@ -46,7 +57,10 @@
             app:tint="@android:color/white" />
     </LinearLayout>
 
-    <!-- Main content section -->
+    <!--
+        Main Input Section
+        The layout_weight="1" ensures this section fills the available vertical space.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -57,7 +71,7 @@
         android:paddingRight="24dp"
         android:paddingTop="20dp">
 
-        <!-- Page icon -->
+        <!-- Decorative Page Icon -->
         <ImageView
             android:id="@+id/imgGoalsIcon"
             android:layout_width="110dp"
@@ -68,7 +82,7 @@
             android:src="@drawable/phiwe_person"
             app:tint="#2E2E2E" />
 
-        <!-- Page title -->
+        <!-- Screen Title -->
         <TextView
             android:id="@+id/tvGoalsTitle"
             android:layout_width="wrap_content"
@@ -79,7 +93,10 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <!-- Goal name -->
+        <!--
+            Goal Name Input
+            inputType="textCapWords" ensures names start with a capital letter.
+        -->
         <EditText
             android:id="@+id/etGoalName"
             android:layout_width="match_parent"
@@ -93,7 +110,10 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Target amount -->
+        <!--
+            Target Amount Input
+            inputType="numberDecimal" allows only numbers and decimals for currency.
+        -->
         <EditText
             android:id="@+id/etTargetAmount"
             android:layout_width="match_parent"
@@ -107,7 +127,7 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Current saved amount -->
+        <!-- Current Saved Amount Input -->
         <EditText
             android:id="@+id/etCurrentSaved"
             android:layout_width="match_parent"
@@ -121,7 +141,7 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Calculate progress button -->
+        <!-- Button to trigger progress calculation -->
         <Button
             android:id="@+id/btnCalculateGoal"
             android:layout_width="170dp"
@@ -133,7 +153,7 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
-        <!-- Back button -->
+        <!-- Navigation button back to the dashboard -->
         <Button
             android:id="@+id/btnBackFromGoals"
             android:layout_width="170dp"
@@ -145,7 +165,10 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
-        <!-- Results card -->
+        <!--
+            Results Card
+            A separate box at the bottom to show the calculated goal information.
+        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -162,6 +185,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <!-- Dynamic text fields that will be updated by the code -->
             <TextView
                 android:id="@+id/tvGoalNameResult"
                 android:layout_width="wrap_content"
@@ -189,6 +213,7 @@
                 android:textColor="#F3DADA"
                 android:textSize="14sp" />
 
+            <!-- Progress percentage highlights the result -->
             <TextView
                 android:id="@+id/tvPercentageResult"
                 android:layout_width="wrap_content"

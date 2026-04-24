@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+    Expense Item Detail Layout
+    This layout displays the full details of a specific expense that the user has recorded.
+    It uses a vertical LinearLayout to stack information from top to bottom.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -9,13 +13,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Top bar section -->
+    <!--
+        Top Bar Section
+        This horizontal row contains icons for navigation or settings.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal">
 
-        <!-- Left icon -->
+        <!-- Left Icon: Usually for notifications or a side menu -->
         <ImageButton
             android:id="@+id/btnDashboardMenu"
             android:layout_width="40dp"
@@ -26,13 +33,17 @@
             android:src="@drawable/phiwe_bell"
             app:tint="@android:color/white" />
 
-        <!-- Spacer to push the next icon to the right -->
+        <!--
+            Spacer View
+            By setting layout_weight="1", this view stretches to fill the middle,
+            pushing the icons to the far left and far right.
+        -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Right icon -->
+        <!-- Right Icon: Usually for theme toggles or settings -->
         <ImageButton
             android:id="@+id/btnDashboardSettings"
             android:layout_width="40dp"
@@ -44,7 +55,10 @@
             app:tint="@android:color/white" />
     </LinearLayout>
 
-    <!-- Profile / welcome section -->
+    <!--
+        Profile / Welcome Header
+        Displays the user's icon and a header text for the summary.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,9 +66,7 @@
         android:gravity="center_vertical"
         android:layout_marginBottom="24dp">
 
-
-
-        <!-- User icon -->
+        <!-- User profile avatar -->
         <ImageView
             android:id="@+id/imgDashboardProfile"
             android:layout_width="70dp"
@@ -64,12 +76,12 @@
             android:src="@drawable/phiwe_person"
             app:tint="#2E2E2E" />
 
-        <!-- Space between image and text -->
+        <!-- Gap between the profile image and the text -->
         <View
             android:layout_width="16dp"
             android:layout_height="1dp" />
 
-        <!-- Welcome text section -->
+        <!-- Greeting and instruction text -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,6 +96,7 @@
                 android:textSize="22sp"
                 android:textStyle="bold" />
 
+            <!-- Dynamic username placeholder -->
             <TextView
                 android:id="@+id/tvUsernameDisplay"
                 android:layout_width="wrap_content"
@@ -94,7 +107,12 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Expense name -->
+    <!--
+        Expense Data Details
+        A list of TextViews showing the specific information about the expense.
+    -->
+
+    <!-- Name of the expense -->
     <TextView
         android:id="@+id/tvExpenseName"
         android:layout_width="wrap_content"
@@ -104,7 +122,7 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    <!-- Expense amount -->
+    <!-- Amount of money spent -->
     <TextView
         android:id="@+id/tvExpenseAmount"
         android:layout_width="wrap_content"
@@ -114,7 +132,7 @@
         android:textColor="#F3DADA"
         android:textSize="14sp" />
 
-    <!-- Expense category -->
+    <!-- Category (e.g., Food, Transport, Rent) -->
     <TextView
         android:id="@+id/tvExpenseCategory"
         android:layout_width="wrap_content"
@@ -124,7 +142,7 @@
         android:textColor="#F3DADA"
         android:textSize="14sp" />
 
-    <!-- Expense date -->
+    <!-- The date the expense was made -->
     <TextView
         android:id="@+id/tvExpenseDate"
         android:layout_width="wrap_content"
@@ -134,7 +152,7 @@
         android:textColor="#F3DADA"
         android:textSize="14sp" />
 
-    <!-- Expense description -->
+    <!-- Extra notes or description -->
     <TextView
         android:id="@+id/tvExpenseDescription"
         android:layout_width="wrap_content"
@@ -144,13 +162,17 @@
         android:textColor="#F3DADA"
         android:textSize="14sp" />
 
+    <!--
+        Bottom Navigation Buttons
+        Actions for the user to go back or sign out.
+    -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:padding="16dp">
 
-        <!-- Back button -->
+        <!-- Button to navigate back to the main Dashboard -->
         <Button
             android:id="@+id/btnReturnToDashboard"
             android:layout_width="160dp"
@@ -161,6 +183,7 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
+        <!-- Button to log out of the account -->
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="0dp"
@@ -175,4 +198,3 @@
 
     </LinearLayout>
 </LinearLayout>
-

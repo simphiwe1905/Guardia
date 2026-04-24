@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+    Expense Page Layout (Add Expense)
+    This screen allows users to input details for a new expense, such as the
+    name, amount, category, and date.
+
+    The root 'LinearLayout' is vertical, meaning all major parts are stacked
+    from top to bottom.
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,13 +18,19 @@
     android:background="@drawable/guardia"
     tools:context=".expense_page">
 
-    <!-- Top bar -->
-    <!--The first Layout is for the top bar-->
+    <!--
+        Top Navigation Bar
+        This section usually holds buttons for notifications or settings.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal">
 
+        <!--
+            Note: This nested LinearLayout (addExpenseMain) appears to be
+            part of a complex or duplicated layout structure.
+        -->
         <LinearLayout
             android:id="@+id/addExpenseMain"
             android:layout_width="match_parent"
@@ -26,13 +40,13 @@
             android:background="#6e2525"
             tools:context=".expense_page">
 
-            <!-- Top bar -->
+            <!-- Inner Top bar for the nested section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:orientation="horizontal">
 
-                <!-- Bell icon on the left -->
+                <!-- Bell icon for notifications -->
                 <ImageButton
                     android:id="@+id/btnExpenseMenu"
                     android:layout_width="40dp"
@@ -42,13 +56,13 @@
                     android:padding="8dp"
                     android:src="@drawable/phiwe_bell" />
 
-                <!-- Spacer -->
+                <!-- Spacer: pushes icons to opposite sides of the bar -->
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1" />
 
-                <!-- Moon icon on the right -->
+                <!-- Moon icon for theme settings -->
                 <ImageButton
                     android:id="@+id/btnExpenseSetting"
                     android:layout_width="40dp"
@@ -60,7 +74,10 @@
 
             </LinearLayout>
 
-            <!-- Main content area -->
+            <!--
+                Inner Content Area
+                Contains the actual input fields for the expense details.
+            -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -72,7 +89,7 @@
                 android:background="@drawable/guardia"
                 android:paddingTop="20dp">
 
-                <!-- Page icon -->
+                <!-- Visual Page Icon -->
                 <ImageView
                     android:id="@+id/imgExpenseIcons"
                     android:layout_width="110dp"
@@ -83,7 +100,7 @@
                     android:src="@drawable/phiwe_person"
                     app:tint="#2E2E2E" />
 
-                <!-- Title -->
+                <!-- Page Header Title -->
                 <TextView
                     android:id="@+id/tvExpensesTitle"
                     android:layout_width="wrap_content"
@@ -94,7 +111,7 @@
                     android:textSize="24sp"
                     android:textStyle="bold" />
 
-                <!-- Expense name input -->
+                <!-- Expense Name Input: textCapWords capitalizes the first letter -->
                 <EditText
                     android:id="@+id/etExpenseNames"
                     android:layout_width="match_parent"
@@ -108,7 +125,7 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="#D9B2B2" />
 
-                <!-- Expense amount input -->
+                <!-- Amount Input: numberDecimal shows a numeric keyboard with a dot -->
                 <EditText
                     android:id="@+id/etExpenseAmounts"
                     android:layout_width="match_parent"
@@ -122,7 +139,7 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="#D9B2B2" />
 
-                <!-- Expense category input -->
+                <!-- Category Input: Helps users organize their spending -->
                 <EditText
                     android:id="@+id/etExpenseCategories"
                     android:layout_width="match_parent"
@@ -136,7 +153,7 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="#D9B2B2" />
 
-                <!-- Expense date input -->
+                <!-- Date Input: inputType="date" triggers a date-specific keyboard -->
                 <EditText
                     android:id="@+id/etExpenseDates"
                     android:layout_width="match_parent"
@@ -150,7 +167,7 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="#D9B2B2" />
 
-                <!-- Expense description input -->
+                <!-- Description Input: textMultiLine allows multiple lines of text -->
                 <EditText
                     android:id="@+id/etExpenseDescriptions"
                     android:layout_width="match_parent"
@@ -166,7 +183,7 @@
                     android:textColor="@android:color/white"
                     android:textColorHint="#D9B2B2" />
 
-                <!-- Save expense button -->
+                <!-- Primary Action Button: Saves the data to the app -->
                 <Button
                     android:id="@+id/btnSaveExpenses"
                     android:layout_width="160dp"
@@ -178,7 +195,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="14sp" />
 
-                <!-- Back button -->
+                <!-- Navigation Button: Takes the user back to the dashboard -->
                 <Button
                     android:id="@+id/btnReturnToDashboard"
                     android:layout_width="160dp"
@@ -193,13 +210,13 @@
 
         </LinearLayout>
 
-        <!-- Spacer -->
+        <!-- Spacer for the outer top bar -->
         <View
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <!-- Moon icon on the right -->
+        <!-- Theme icon for the outer top bar -->
         <ImageButton
             android:id="@+id/btnExpenseSettings"
             android:layout_width="40dp"
@@ -211,7 +228,10 @@
             />
     </LinearLayout>
 
-    <!-- Main content area -->
+    <!--
+        Main content area (Alternative section)
+        This section repeats the Add Expense form, potentially for a different screen state.
+    -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -222,7 +242,6 @@
         android:paddingRight="24dp"
         android:paddingTop="20dp">
 
-        <!-- Page icon -->
         <ImageView
             android:id="@+id/imgExpenseIcon"
             android:layout_width="110dp"
@@ -233,7 +252,6 @@
             android:src="@drawable/phiwe_person"
              />
 
-        <!-- Title -->
         <TextView
             android:id="@+id/tvAddExpenseTitle"
             android:layout_width="wrap_content"
@@ -244,7 +262,7 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <!-- Expense name input -->
+        <!-- Reusable Input Fields (Name, Amount, Category, Date, Description) -->
         <EditText
             android:id="@+id/etExpenseName"
             android:layout_width="match_parent"
@@ -258,7 +276,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Expense amount input -->
         <EditText
             android:id="@+id/etExpenseAmount"
             android:layout_width="match_parent"
@@ -272,7 +289,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Expense category input -->
         <EditText
             android:id="@+id/etExpenseCategory"
             android:layout_width="match_parent"
@@ -286,7 +302,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Expense date input -->
         <EditText
             android:id="@+id/etExpenseDate"
             android:layout_width="match_parent"
@@ -300,7 +315,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Expense description input -->
         <EditText
             android:id="@+id/etExpenseDescription"
             android:layout_width="match_parent"
@@ -316,7 +330,6 @@
             android:textColor="@android:color/white"
             android:textColorHint="#D9B2B2" />
 
-        <!-- Save expense button -->
         <Button
             android:id="@+id/btnSaveExpense"
             android:layout_width="160dp"
@@ -328,7 +341,6 @@
             android:textColor="@android:color/white"
             android:textSize="14sp" />
 
-        <!-- Back button -->
         <Button
             android:id="@+id/btnBackToDashboard"
             android:layout_width="160dp"
