@@ -21,7 +21,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
-            android:contentDescription="Menu button"
+            android:contentDescription="notification button"
             android:padding="8dp"
             android:src="@drawable/phiwe_bell"
             app:tint="@android:color/white" />
@@ -38,7 +38,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
-            android:contentDescription="settings button"
+            android:contentDescription="themes button"
             android:padding="8dp"
             android:src="@drawable/moon"
             app:tint="@android:color/white" />
@@ -154,7 +154,7 @@
         <Button
             android:id="@+id/btnReturnToDashboard"
             android:layout_width="160dp"
-            android:layout_height="45dp"
+            android:layout_height="60dp"
             android:background="@color/black"
             android:text="Back to Dashboard"
             android:textAllCaps="false"
@@ -164,7 +164,7 @@
         <Button
             android:id="@+id/btnLogout"
             android:layout_width="0dp"
-            android:layout_height="45dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:layout_marginLeft="8dp"
             android:background="@drawable/bg_button"

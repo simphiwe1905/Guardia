@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Goals page
-    This page allows the user to create and track a savings goal
--->
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -26,7 +23,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
-            android:contentDescription="Menu button"
+            android:contentDescription="notification button"
             android:padding="8dp"
             android:src="@drawable/phiwe_bell"
             app:tint="@android:color/white" />
@@ -43,7 +40,7 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:background="@android:color/transparent"
-            android:contentDescription="Settings button"
+            android:contentDescription="themes button"
             android:padding="8dp"
             android:src="@drawable/moon"
             app:tint="@android:color/white" />
@@ -128,7 +125,7 @@
         <Button
             android:id="@+id/btnCalculateGoal"
             android:layout_width="170dp"
-            android:layout_height="45dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/bg_button"
             android:text="Calculate Progress"
@@ -140,7 +137,7 @@
         <Button
             android:id="@+id/btnBackFromGoals"
             android:layout_width="170dp"
-            android:layout_height="45dp"
+            android:layout_height="60dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bg_button"
             android:text="Back to Dashboard"

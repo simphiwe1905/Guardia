@@ -11,30 +11,20 @@
     tools:context=".expense_page">
 
     <!-- Top bar -->
+    <!--The first Layout is for the top bar-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:orientation="horizontal">
 
-        <!-- Bell icon on the left -->
-        <ImageButton
-            android:id="@+id/btnExpenseMnu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/white"
-            android:contentDescription="Menu button"
-            android:padding="8dp"
-            android:src="@drawable/phiwe_bell" />
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:id="@+id/addExpenseMain"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:padding="16dp"
-            android:background="#0A0A0A"
-            tools:context=".AddExpenseActivity">
+            android:background="#6e2525"
+            tools:context=".expense_page">
 
             <!-- Top bar -->
             <LinearLayout
@@ -48,7 +38,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@android:color/white"
-                    android:contentDescription="Menu button"
+                    android:contentDescription="notification button"
                     android:padding="8dp"
                     android:src="@drawable/phiwe_bell" />
 
@@ -64,7 +54,7 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@android:color/white"
-                    android:contentDescription="Settings button"
+                    android:contentDescription="themes button"
                     android:padding="8dp"
                     android:src="@drawable/moon" />
 
@@ -79,6 +69,7 @@
                 android:gravity="center_horizontal"
                 android:paddingLeft="24dp"
                 android:paddingRight="24dp"
+                android:background="@drawable/guardia"
                 android:paddingTop="20dp">
 
                 <!-- Page icon -->
@@ -329,7 +320,7 @@
         <Button
             android:id="@+id/btnSaveExpense"
             android:layout_width="160dp"
-            android:layout_height="45dp"
+            android:layout_height="40dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/bg_button"
             android:text="Save Expense"
