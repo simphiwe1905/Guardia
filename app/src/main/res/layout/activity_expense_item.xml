@@ -1,200 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Expense Item Detail Layout
-    This layout displays the full details of a specific expense that the user has recorded.
-    It uses a vertical LinearLayout to stack information from top to bottom.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="12dp"
-    android:background="@drawable/guardia"
+    android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:background="@drawable/guardia"
+    android:fitsSystemWindows="true"
+    tools:context=".expense_item">
 
-    <!--
-        Top Bar Section
-        This horizontal row contains icons for navigation or settings.
-    -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
-
-        <!-- Left Icon: Usually for notifications or a side menu -->
-        <ImageButton
-            android:id="@+id/btnDashboardMenu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="notification button"
-            android:padding="8dp"
-            android:src="@drawable/phiwe_bell"
-            app:tint="@android:color/white" />
-
-        <!--
-            Spacer View
-            By setting layout_weight="1", this view stretches to fill the middle,
-            pushing the icons to the far left and far right.
-        -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- Right Icon: Usually for theme toggles or settings -->
-        <ImageButton
-            android:id="@+id/btnDashboardSettings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="themes button"
-            android:padding="8dp"
-            android:src="@drawable/moon"
-            app:tint="@android:color/white" />
-    </LinearLayout>
-
-    <!--
-        Profile / Welcome Header
-        Displays the user's icon and a header text for the summary.
-    -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:layout_marginBottom="24dp">
-
-        <!-- User profile avatar -->
-        <ImageView
-            android:id="@+id/imgDashboardProfile"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/bg_circle"
-            android:padding="14dp"
-            android:src="@drawable/phiwe_person"
-            app:tint="#2E2E2E" />
-
-        <!-- Gap between the profile image and the text -->
-        <View
-            android:layout_width="16dp"
-            android:layout_height="1dp" />
-
-        <!-- Greeting and instruction text -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvWelcome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="This is your expense summary:"
-                android:textColor="@android:color/white"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <!-- Dynamic username placeholder -->
-            <TextView
-                android:id="@+id/tvUsernameDisplay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="User's Name"
-                android:textColor="#D9B2B2"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!--
-        Expense Data Details
-        A list of TextViews showing the specific information about the expense.
-    -->
-
-    <!-- Name of the expense -->
-    <TextView
-        android:id="@+id/tvExpenseName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Expense"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <!-- Amount of money spent -->
-    <TextView
-        android:id="@+id/tvExpenseAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:text="Amount: R 000"
-        android:textColor="#F3DADA"
-        android:textSize="14sp" />
-
-    <!-- Category (e.g., Food, Transport, Rent) -->
-    <TextView
-        android:id="@+id/tvExpenseCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Category: "
-        android:textColor="#F3DADA"
-        android:textSize="14sp" />
-
-    <!-- The date the expense was made -->
-    <TextView
-        android:id="@+id/tvExpenseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Date: 00/00/0000"
-        android:textColor="#F3DADA"
-        android:textSize="14sp" />
-
-    <!-- Extra notes or description -->
-    <TextView
-        android:id="@+id/tvExpenseDescription"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Description: "
-        android:textColor="#F3DADA"
-        android:textSize="14sp" />
-
-    <!--
-        Bottom Navigation Buttons
-        Actions for the user to go back or sign out.
-    -->
-    <LinearLayout
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:fillViewport="true">
 
-        <!-- Button to navigate back to the main Dashboard -->
-        <Button
-            android:id="@+id/btnReturnToDashboard"
-            android:layout_width="160dp"
-            android:layout_height="60dp"
-            android:background="@color/black"
-            android:text="Back to Dashboard"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="24dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp">
 
-        <!-- Button to log out of the account -->
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:layout_weight="1"
-            android:layout_marginLeft="8dp"
-            android:background="@drawable/bg_button"
-            android:text="Logout"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="13sp" />
+            <!-- Top Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
 
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btnDashboardMenu"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="notification button"
+                    android:padding="6dp"
+                    android:src="@drawable/phiwe_bell"
+                    app:tint="@android:color/white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <ImageButton
+                    android:id="@+id/btnDashboardSettings"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="themes button"
+                    android:padding="6dp"
+                    android:src="@drawable/moon"
+                    app:tint="@android:color/white" />
+            </LinearLayout>
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:id="@+id/imgDashboardProfile"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_circle"
+                    android:padding="10dp"
+                    android:src="@drawable/phiwe_person"
+                    app:tint="#2E2E2E" />
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="1dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvWelcome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Your Expenses"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvUsernameDisplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="User's Name"
+                        android:textColor="#D9B2B2"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Summary Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_edittext"
+                android:orientation="horizontal"
+                android:padding="12dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Expenses"
+                        android:textColor="#F3DADA"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvTotalExpensesAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="R 0.00"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Count"
+                        android:textColor="#F3DADA"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tvExpenseCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewExpenses"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:paddingBottom="8dp" />
+
+            <!-- Bottom Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/btnReturnToDashboard"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/bg_button"
+                    android:text="Back to dashboard"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp" />
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:layout_marginStart="5dp"
+                    android:background="@drawable/bg_button"
+                    android:text="Logout"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

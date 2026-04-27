@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Expense Page Layout (Add Expense)
-    This screen allows users to input details for a new expense, such as the
-    name, amount, category, and date.
-
-    The root 'LinearLayout' is vertical, meaning all major parts are stacked
-    from top to bottom.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -14,343 +6,183 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@drawable/guardia"
+    android:fitsSystemWindows="true"
     tools:context=".expense_page">
 
-    <!--
-        Top Navigation Bar
-        This section usually holds buttons for notifications or settings.
-    -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <!--
-            Note: This nested LinearLayout (addExpenseMain) appears to be
-            part of a complex or duplicated layout structure.
-        -->
         <LinearLayout
-            android:id="@+id/addExpenseMain"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
-            android:background="#6e2525"
-            tools:context=".expense_page">
+            android:gravity="center_horizontal"
+            android:paddingTop="24dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp">
 
-            <!-- Inner Top bar for the nested section -->
+            <!-- Top Bar inside scroll -->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
-                android:orientation="horizontal">
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
 
-                <!-- Bell icon for notifications -->
                 <ImageButton
                     android:id="@+id/btnExpenseMenu"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:color/white"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@android:color/transparent"
                     android:contentDescription="notification button"
-                    android:padding="8dp"
-                    android:src="@drawable/phiwe_bell" />
+                    android:padding="6dp"
+                    android:src="@drawable/phiwe_bell"
+                    app:tint="@android:color/white" />
 
-                <!-- Spacer: pushes icons to opposite sides of the bar -->
                 <View
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="1" />
 
-                <!-- Moon icon for theme settings -->
                 <ImageButton
-                    android:id="@+id/btnExpenseSetting"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@android:color/white"
+                    android:id="@+id/btnExpenseSettings"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@android:color/transparent"
                     android:contentDescription="themes button"
-                    android:padding="8dp"
-                    android:src="@drawable/moon" />
-
+                    android:padding="6dp"
+                    android:src="@drawable/moon"
+                    app:tint="@android:color/white" />
             </LinearLayout>
 
-            <!--
-                Inner Content Area
-                Contains the actual input fields for the expense details.
-            -->
-            <LinearLayout
+            <!-- Icon -->
+            <ImageView
+                android:id="@+id/imgExpenseIcon"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_circle"
+                android:padding="16dp"
+                android:src="@drawable/phiwe_person"
+                app:tint="#2E2E2E" />
+
+            <!-- Title -->
+            <TextView
+                android:id="@+id/tvAddExpenseTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:text="Add Expense"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Expense Name -->
+            <EditText
+                android:id="@+id/etExpenseName"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center_horizontal"
-                android:paddingLeft="24dp"
-                android:paddingRight="24dp"
-                android:background="@drawable/guardia"
-                android:paddingTop="20dp">
+                android:layout_height="45dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Enter Expense Name"
+                android:inputType="textCapWords"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
 
-                <!-- Visual Page Icon -->
-                <ImageView
-                    android:id="@+id/imgExpenseIcons"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/bg_circle"
-                    android:padding="22dp"
-                    android:src="@drawable/phiwe_person"
-                    app:tint="#2E2E2E" />
+            <!-- Amount -->
+            <EditText
+                android:id="@+id/etExpenseAmount"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Enter Amount"
+                android:inputType="numberDecimal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
 
-                <!-- Page Header Title -->
-                <TextView
-                    android:id="@+id/tvExpensesTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Add Expense"
-                    android:textColor="@android:color/white"
-                    android:textSize="24sp"
-                    android:textStyle="bold" />
+            <!-- Category -->
+            <EditText
+                android:id="@+id/etExpenseCategory"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Enter Category"
+                android:inputType="textCapWords"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
 
-                <!-- Expense Name Input: textCapWords capitalizes the first letter -->
-                <EditText
-                    android:id="@+id/etExpenseNames"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="Enter Expense Name"
-                    android:inputType="textCapWords"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#D9B2B2" />
+            <!-- Date -->
+            <EditText
+                android:id="@+id/etExpenseDate"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Enter Date (tap to select)"
+                android:focusable="false"
+                android:clickable="true"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
 
-                <!-- Amount Input: numberDecimal shows a numeric keyboard with a dot -->
-                <EditText
-                    android:id="@+id/etExpenseAmounts"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="Enter Amount"
-                    android:inputType="numberDecimal"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#D9B2B2" />
+            <!-- Description -->
+            <EditText
+                android:id="@+id/etExpenseDescription"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_edittext"
+                android:gravity="top|start"
+                android:hint="Enter Description"
+                android:inputType="textMultiLine"
+                android:paddingStart="14dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
 
-                <!-- Category Input: Helps users organize their spending -->
-                <EditText
-                    android:id="@+id/etExpenseCategories"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="Enter Category"
-                    android:inputType="textCapWords"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#D9B2B2" />
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/btnSaveExpense"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="6dp"
+                android:background="@drawable/bg_button"
+                android:text="Save Expense"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
 
-                <!-- Date Input: inputType="date" triggers a date-specific keyboard -->
-                <EditText
-                    android:id="@+id/etExpenseDates"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_edittext"
-                    android:hint="Enter Date"
-                    android:inputType="date"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#D9B2B2" />
-
-                <!-- Description Input: textMultiLine allows multiple lines of text -->
-                <EditText
-                    android:id="@+id/etExpenseDescriptions"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/bg_edittext"
-                    android:gravity="top"
-                    android:hint="Enter Description"
-                    android:inputType="textMultiLine"
-                    android:paddingLeft="16dp"
-                    android:paddingTop="12dp"
-                    android:paddingRight="16dp"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="#D9B2B2" />
-
-                <!-- Primary Action Button: Saves the data to the app -->
-                <Button
-                    android:id="@+id/btnSaveExpenses"
-                    android:layout_width="160dp"
-                    android:layout_height="45dp"
-                    android:layout_marginBottom="12dp"
-                    android:background="@drawable/bg_button"
-                    android:text="Save Expense"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-                <!-- Navigation Button: Takes the user back to the dashboard -->
-                <Button
-                    android:id="@+id/btnReturnToDashboard"
-                    android:layout_width="160dp"
-                    android:layout_height="45dp"
-                    android:background="@color/black"
-                    android:text="Back to Dashboard"
-                    android:textAllCaps="false"
-                    android:textColor="@android:color/white"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btnBackToDashboard"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:background="@drawable/bg_button"
+                android:text="Back to Dashboard"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
 
         </LinearLayout>
-
-        <!-- Spacer for the outer top bar -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- Theme icon for the outer top bar -->
-        <ImageButton
-            android:id="@+id/btnExpenseSettings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Settings button"
-            android:padding="8dp"
-            android:src="@drawable/moon"
-            />
-    </LinearLayout>
-
-    <!--
-        Main content area (Alternative section)
-        This section repeats the Add Expense form, potentially for a different screen state.
-    -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="20dp">
-
-        <ImageView
-            android:id="@+id/imgExpenseIcon"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_circle"
-            android:padding="22dp"
-            android:src="@drawable/phiwe_person"
-             />
-
-        <TextView
-            android:id="@+id/tvAddExpenseTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Add Expense"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <!-- Reusable Input Fields (Name, Amount, Category, Date, Description) -->
-        <EditText
-            android:id="@+id/etExpenseName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Expense Name"
-            android:inputType="textCapWords"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <EditText
-            android:id="@+id/etExpenseAmount"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Amount"
-            android:inputType="numberDecimal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <EditText
-            android:id="@+id/etExpenseCategory"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Category"
-            android:inputType="textCapWords"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <EditText
-            android:id="@+id/etExpenseDate"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Date"
-            android:inputType="date"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <EditText
-            android:id="@+id/etExpenseDescription"
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_edittext"
-            android:gravity="top"
-            android:hint="Enter Description"
-            android:inputType="textMultiLine"
-            android:paddingLeft="16dp"
-            android:paddingTop="12dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <Button
-            android:id="@+id/btnSaveExpense"
-            android:layout_width="160dp"
-            android:layout_height="40dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_button"
-            android:text="Save Expense"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
-        <Button
-            android:id="@+id/btnBackToDashboard"
-            android:layout_width="160dp"
-            android:layout_height="45dp"
-            android:background="@drawable/bg_button"
-            android:text="Back to Dashboard"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
