@@ -11,6 +11,8 @@ import kotlinx.coroutines.launch
 
 class goals_page : AppCompatActivity() {
 
+    lateinit var etGoalName: EditText
+    lateinit var etTargetAmount: EditText
     lateinit var etGoalMonth: EditText
     lateinit var etMinAmount: EditText
     lateinit var etMaxAmount: EditText
@@ -32,6 +34,8 @@ class goals_page : AppCompatActivity() {
     }
 
     fun initializeViews() {
+        etGoalName = findViewById(R.id.etGoalName)
+        etTargetAmount = findViewById(R.id.etTargetAmount)
         etGoalMonth = findViewById(R.id.etGoalMonth)
         etMinAmount = findViewById(R.id.etMinAmount)
         etMaxAmount = findViewById(R.id.etMaxAmount)
@@ -41,21 +45,25 @@ class goals_page : AppCompatActivity() {
 
     fun setupClickListeners() {
         btnSaveGoal.setOnClickListener {
+            val goalName = etGoalName.text.toString().trim()
+            val targetAmountText = etTargetAmount.text.toString().trim()
             val monthYear = etGoalMonth.text.toString().trim()
             val minAmountText = etMinAmount.text.toString().trim()
             val maxAmountText = etMaxAmount.text.toString().trim()
 
-            if (monthYear.isEmpty() || minAmountText.isEmpty() || maxAmountText.isEmpty()) {
+            if (goalName.isEmpty() || targetAmountText.isEmpty() || monthYear.isEmpty() ||
+                minAmountText.isEmpty() || maxAmountText.isEmpty()) {
                 Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
             } else {
                 try {
+                    val targetAmount = targetAmountText.toDouble()
                     val minAmount = minAmountText.toDouble()
                     val maxAmount = maxAmountText.toDouble()
 
                     if (minAmount >= maxAmount) {
                         Toast.makeText(this, "Minimum must be less than maximum", Toast.LENGTH_SHORT).show()
                     } else {
-                        saveGoal(monthYear, minAmount, maxAmount)
+                        saveAllGoals(goalName, targetAmount, monthYear, minAmount, maxAmount)
                     }
                 } catch (e: NumberFormatException) {
                     Toast.makeText(this, "Please enter valid amounts", Toast.LENGTH_SHORT).show()
@@ -71,13 +79,18 @@ class goals_page : AppCompatActivity() {
         }
     }
 
-    fun saveGoal(monthYear: String, minAmount: Double, maxAmount: Double) {
+    fun saveAllGoals(goalName: String, targetAmount: Double, monthYear: String, minAmount: Double, maxAmount: Double) {
         lifecycleScope.launch {
             try {
                 val application = application as GuardiaApplication
+
+                // Save savings goal
+                application.repository.addSavingsGoal(userId, goalName, targetAmount)
+
+                // Save monthly spending goal
                 application.repository.setMonthlyGoal(userId, monthYear, minAmount, maxAmount)
 
-                Toast.makeText(this@goals_page, "Monthly goal saved!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@goals_page, "Goals saved successfully!", Toast.LENGTH_SHORT).show()
 
                 val intent = Intent(this@goals_page, dashboard::class.java)
                 intent.putExtra("USER_ID", userId)

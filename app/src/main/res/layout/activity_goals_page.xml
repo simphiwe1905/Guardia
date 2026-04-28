@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".login_page">
+    android:layout_height="match_parent">
 
     <!-- Background Image -->
     <ImageView
@@ -14,19 +11,11 @@
         android:src="@drawable/guardia"
         android:scaleType="centerCrop" />
 
-    <!-- Optional Dark Overlay (for better visibility) -->
+    <!-- Dark overlay -->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#80000000"/>
-
-
-<LinearLayout
-    android:id="@+id/goalsMain"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:fitsSystemWindows="true">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -47,11 +36,61 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Monthly Spending Goals"
+                android:text="Set Your Goals"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="16dp" />
+                android:layout_marginBottom="20dp" />
+
+            <!-- Savings Goal Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Savings Goal"
+                android:textColor="#F3DADA"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Goal Name -->
+            <EditText
+                android:id="@+id/etGoalName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Goal Name (e.g., New Car)"
+                android:inputType="textCapWords"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
+
+            <!-- Target Amount -->
+            <EditText
+                android:id="@+id/etTargetAmount"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Target Amount (R)"
+                android:inputType="numberDecimal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
+
+            <!-- Monthly Spending Goal Section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monthly Spending Goal"
+                android:textColor="#F3DADA"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
 
             <!-- Month/Year -->
             <EditText
@@ -75,7 +114,7 @@
                 android:layout_height="45dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/bg_edittext"
-                android:hint="Minimum Spending Goal (R)"
+                android:hint="Minimum Spending (R)"
                 android:inputType="numberDecimal"
                 android:paddingStart="14dp"
                 android:paddingEnd="14dp"
@@ -90,7 +129,7 @@
                 android:layout_height="45dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/bg_edittext"
-                android:hint="Maximum Spending Limit (R)"
+                android:hint="Maximum Spending (R)"
                 android:inputType="numberDecimal"
                 android:paddingStart="14dp"
                 android:paddingEnd="14dp"
@@ -101,11 +140,11 @@
             <!-- Save Button -->
             <Button
                 android:id="@+id/btnSaveGoal"
-                android:layout_width="160dp"
+                android:layout_width="175dp"
                 android:layout_height="40dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/bg_button"
-                android:text="Save Goal"
+                android:text="Save Goals"
                 android:textAllCaps="false"
                 android:textColor="@android:color/white"
                 android:textSize="13sp" />
@@ -113,7 +152,7 @@
             <!-- Back Button -->
             <Button
                 android:id="@+id/btnBackToDashboard"
-                android:layout_width="160dp"
+                android:layout_width="175dp"
                 android:layout_height="40dp"
                 android:background="@drawable/bg_button"
                 android:text="Back to Dashboard"
@@ -123,6 +162,4 @@
 
         </LinearLayout>
     </ScrollView>
-
-</LinearLayout>
 </FrameLayout>
