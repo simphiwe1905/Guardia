@@ -7,7 +7,7 @@ import androidx.room.ForeignKey
 import androidx.room.Index
 
 @Entity(
-    tableName = "expenses",
+    tableName = "monthly_goals",
     foreignKeys = [
         ForeignKey(
             entity = User::class,
@@ -18,30 +18,21 @@ import androidx.room.Index
     ],
     indices = [Index("user_id")]
 )
-data class Expense(
+data class MonthlyGoal(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
 
     @ColumnInfo(name = "user_id")
     val userId: Long,
 
-    @ColumnInfo(name = "name")
-    val name: String,
+    @ColumnInfo(name = "month_year")
+    val monthYear: String,
 
-    @ColumnInfo(name = "amount")
-    val amount: Double,
+    @ColumnInfo(name = "min_amount")
+    val minAmount: Double,
 
-    @ColumnInfo(name = "category")
-    val category: String,
-
-    @ColumnInfo(name = "date")
-    val date: String,
-
-    @ColumnInfo(name = "description")
-    val description: String = "",
-
-    @ColumnInfo(name = "image_path")
-    val imagePath: String = "",
+    @ColumnInfo(name = "max_amount")
+    val maxAmount: Double,
 
     @ColumnInfo(name = "created_at")
     val createdAt: Long = System.currentTimeMillis()

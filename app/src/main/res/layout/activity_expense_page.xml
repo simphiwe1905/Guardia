@@ -159,6 +159,36 @@
                 android:textColorHint="#D9B2B2"
                 android:textSize="13sp" />
 
+            <!-- Photo Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="12dp">
+
+                <ImageView
+                    android:id="@+id/imgExpensePhoto"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_edittext"
+                    android:layout_marginEnd="12dp" />
+
+                <Button
+                    android:id="@+id/btnCapturePhoto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_button"
+                    android:text="Add Photo"
+                    android:textAllCaps="false"
+                    android:textColor="@android:color/white"
+                    android:textSize="13sp"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp" />
+            </LinearLayout>
+
             <!-- Save Button -->
             <Button
                 android:id="@+id/btnSaveExpense"
