@@ -1,230 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Savings Goals Page Layout
-    This screen allows users to set and track their financial savings goals.
-    Users can input a goal name, a target amount, and their current savings
-    to see their progress percentage.
--->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/goalsMain"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
     android:background="@drawable/guardia"
-    tools:context=".goals_page">
+    android:fitsSystemWindows="true">
 
-    <!--
-        Top Navigation Bar
-        Contains quick-action icons.
-    -->
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <!-- Bell icon: Typically used for alerts or notifications -->
-        <ImageButton
-            android:id="@+id/btnGoalsMenu"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="notification button"
-            android:padding="8dp"
-            android:src="@drawable/phiwe_bell"
-            app:tint="@android:color/white" />
-
-        <!--
-            Spacer View
-            Uses layout_weight="1" to push the two icons to opposite sides of the screen.
-        -->
-        <View
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_weight="1" />
-
-        <!-- Moon icon: Used for toggling themes (like Dark Mode) -->
-        <ImageButton
-            android:id="@+id/btnGoalsSettings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="themes button"
-            android:padding="8dp"
-            android:src="@drawable/moon"
-            app:tint="@android:color/white" />
-    </LinearLayout>
-
-    <!--
-        Main Input Section
-        The layout_weight="1" ensures this section fills the available vertical space.
-    -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingLeft="24dp"
-        android:paddingRight="24dp"
-        android:paddingTop="20dp">
-
-        <!-- Decorative Page Icon -->
-        <ImageView
-            android:id="@+id/imgGoalsIcon"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_circle"
-            android:padding="22dp"
-            android:src="@drawable/phiwe_person"
-            app:tint="#2E2E2E" />
-
-        <!-- Screen Title -->
-        <TextView
-            android:id="@+id/tvGoalsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:text="Savings Goals"
-            android:textColor="@android:color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <!--
-            Goal Name Input
-            inputType="textCapWords" ensures names start with a capital letter.
-        -->
-        <EditText
-            android:id="@+id/etGoalName"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Goal Name"
-            android:inputType="textCapWords"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <!--
-            Target Amount Input
-            inputType="numberDecimal" allows only numbers and decimals for currency.
-        -->
-        <EditText
-            android:id="@+id/etTargetAmount"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Target Amount"
-            android:inputType="numberDecimal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <!-- Current Saved Amount Input -->
-        <EditText
-            android:id="@+id/etCurrentSaved"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_edittext"
-            android:hint="Enter Current Saved Amount"
-            android:inputType="numberDecimal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:textColor="@android:color/white"
-            android:textColorHint="#D9B2B2" />
-
-        <!-- Button to trigger progress calculation -->
-        <Button
-            android:id="@+id/btnCalculateGoal"
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/bg_button"
-            android:text="Calculate Progress"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
-        <!-- Navigation button back to the dashboard -->
-        <Button
-            android:id="@+id/btnBackFromGoals"
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="20dp"
-            android:background="@drawable/bg_button"
-            android:text="Back to Dashboard"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
-
-        <!--
-            Results Card
-            A separate box at the bottom to show the calculated goal information.
-        -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_edittext"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:gravity="center_horizontal"
+            android:paddingTop="24dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
+            <!-- Title -->
             <TextView
-                android:id="@+id/tvGoalResultTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Goal Progress"
+                android:text="Monthly Spending Goals"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="16dp" />
 
-            <!-- Dynamic text fields that will be updated by the code -->
-            <TextView
-                android:id="@+id/tvGoalNameResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Goal: Not calculated yet"
-                android:textColor="#F3DADA"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvTargetResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Target Amount: R 0.00"
-                android:textColor="#F3DADA"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/tvSavedResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Current Saved: R 0.00"
-                android:textColor="#F3DADA"
-                android:textSize="14sp" />
-
-            <!-- Progress percentage highlights the result -->
-            <TextView
-                android:id="@+id/tvPercentageResult"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:text="Progress: 0%"
+            <!-- Month/Year -->
+            <EditText
+                android:id="@+id/etGoalMonth"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Month/Year (MM/YYYY)"
+                android:inputType="text"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
                 android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
+
+            <!-- Minimum Amount -->
+            <EditText
+                android:id="@+id/etMinAmount"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Minimum Spending Goal (R)"
+                android:inputType="numberDecimal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
+
+            <!-- Maximum Amount -->
+            <EditText
+                android:id="@+id/etMaxAmount"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_edittext"
+                android:hint="Maximum Spending Limit (R)"
+                android:inputType="numberDecimal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#D9B2B2"
+                android:textSize="13sp" />
+
+            <!-- Save Button -->
+            <Button
+                android:id="@+id/btnSaveGoal"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_button"
+                android:text="Save Goal"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+
+            <!-- Back Button -->
+            <Button
+                android:id="@+id/btnBackToDashboard"
+                android:layout_width="160dp"
+                android:layout_height="40dp"
+                android:background="@drawable/bg_button"
+                android:text="Back to Dashboard"
+                android:textAllCaps="false"
+                android:textColor="@android:color/white"
+                android:textSize="13sp" />
+
         </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
