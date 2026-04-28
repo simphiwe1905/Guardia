@@ -4,6 +4,27 @@
     This screen allows users to log into the Guardia app or navigate to the account creation screen.
     It uses a vertical LinearLayout to stack elements from top to bottom.
 -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login_page">
+
+    <!-- Background Image -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/guardia"
+        android:scaleType="centerCrop" />
+
+    <!-- Optional Dark Overlay (for better visibility) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"/>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -12,7 +33,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@drawable/guardia"
     tools:context=".login_page">
 
     <!--
@@ -132,3 +152,4 @@
     </LinearLayout>
 
 </LinearLayout>
+</FrameLayout>
