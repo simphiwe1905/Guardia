@@ -20,7 +20,7 @@
         android:src="@drawable/guardia"
         android:scaleType="centerCrop" />
 
-    <!-- Optional Dark Overlay (for better visibility) -->
+    <!--Dark overlay to dim the background image-->
     <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
