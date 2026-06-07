@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Guardia_App</string>
+
+    <string name="lbl_darkmode">Dark Mode</string>
+    <string name="lbl_notifications">Notifications</string>
+    <string name="lbl_expenses">Expenses</string>
+    <string name="lbl_userOptions">User Options</string>
+    <string name="lbl_settings">Settings</string>
+    <string name="lbl_home">Home</string>
+    <string name="lbl_categories">Categories</string>
+    <string name="lbl_goals">Goals</string>
+    <string name="lbl_awards">Awards</string>
+    <string name="lbl_weeklyQuest">Weekly Quest</string>
+    <string name="lbl_goalProgress">Goal Progress</string>
+    <string name="lbl_spendingTracker">Here\'s what you\'ve spent</string>
+    <string name="lbl_spendingCategories">How your spending looks</string>
+    <string name="lbl_expensesOverview">This Weeks Expense</string>
+
+    <string name="placeholder_username">Username</string>
+    <string name="title_activity_goals_dashboard">goals_dashboard</string>
+    <string name="placeholder_time_remaining">3 Days Left</string>
+    <string name="placeholder_weekly_quest">Save 150 this week</string>
+    <string name="placeholder_quest_name">Quest\nXX</string>
+    <string name="placeholder_goal">Save up for a new computer</string>
+    <string name="placeholder_goal_amount">R 13 500</string>
+</resources>
